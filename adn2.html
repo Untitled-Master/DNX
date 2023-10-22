@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNA Sequence Comparison</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36393f;
+            color: #FFFFFF;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #7289DA;
+            background-color: #2C2F33;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #40444B;
+            color: #FFFFFF;
+            border: none;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #7289DA;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #677BC4;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .difference-box {
+            border: 2px solid #7289DA;
+            background-color: #2C2F33;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .difference {
+            color: #FF6E6E;
+        }
+    </style>
+</head>
+<body>
+    <h1>DNA Sequence Comparison</h1>
+    <div class="container">
+        <label for="dnaSequence1">Enter DNA Sequence 1:</label>
+        <input type="text" id="dnaSequence1" placeholder="Enter DNA Sequence 1" />
+        <label for="dnaSequence2">Enter DNA Sequence 2:</label>
+        <input type="text" id="dnaSequence2" placeholder="Enter DNA Sequence 2" />
+        <button onclick="compareSequences()">Compare</button>
+        <div class="difference-box">
+            <p>Difference:</p>
+            <p id="difference"></p>
+        </div>
+    </div>
+
+    <script>
+        function compareSequences() {
+            var sequence1 = document.getElementById("dnaSequence1").value.toUpperCase();
+            var sequence2 = document.getElementById("dnaSequence2").value.toUpperCase();
+            var difference = "";
+
+            for (var i = 0; i < Math.min(sequence1.length, sequence2.length); i++) {
+                if (sequence1[i] === sequence2[i]) {
+                    difference += "-";
+                } else {
+                    difference += '<span class="difference">' + sequence2[i] + '</span>';
+                }
+            }
+
+            document.getElementById("difference").innerHTML = difference;
+        }
+    </script>
+</body>
+</html>
