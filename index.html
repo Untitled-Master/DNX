@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36393f;
+            color: #FFFFFF;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #7289DA;
+            background-color: #2C2F33;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .tool-card {
+            background-color: #2C2F33;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #7289DA;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .about-me {
+            background-color: #2C2F33;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-me h3 {
+            color: #7289DA;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .about-me p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>DNX</h1>
+    <div class="container">
+        <div class="tool-card" onclick="location.href='adn.html'">
+            <h2>DNA to Protein Converter</h2>
+            <p>Convert DNA sequences to protein sequences.</p>
+        </div>
+        <div class="tool-card" onclick="location.href='adn2.html'">
+            <h2>DNA Sequence Comparison</h2>
+            <p>Compare two DNA sequences and identify differences.</p>
+        </div>
+        <div class="about-me">
+            <h3>About the Developer</h3>
+            <p>Hello! I'm Ahmed Belmahnoud, a 17-year-old developer from Algeria. I created this website for the high school of Nasri Ramdan to provide useful DNA analysis tools. I'm passionate about programming and technology, and I hope you find these tools helpful. If you have any feedback or questions, feel free to reach out!</p>
+        </div>
+    </div>
+</body>
+</html>
