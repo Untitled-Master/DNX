@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNA to Protein Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36393f;
+            color: #FFFFFF;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #7289DA;
+            background-color: #2C2F33;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #40444B;
+            color: #FFFFFF;
+            border: none;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #7289DA;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #677BC4;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .result-box {
+            border: 2px solid #7289DA;
+            background-color: #2C2F33;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DNA to Protein Converter</h1>
+    <div class="container">
+        <label for="dnaSequence">Enter DNA Sequence:</label>
+        <input type="text" id="dnaSequence" placeholder="Enter DNA Sequence" />
+        <button onclick="convertToProtein()">Convert</button>
+        <div class="result-box">
+            <p>Protein Sequence:</p>
+            <p id="proteinSequence"></p>
+        </div>
+    </div>
+
+    <script>
+        function convertToProtein() {
+            var dnaSequence = document.getElementById("dnaSequence").value.toUpperCase();
+            var proteinSequence = "";
+
+            // Define a mapping of RNA codons to amino acids.
+            var codonTable = {
+                "UUU": "Phe", "UUC": "Phe",
+                "UUA": "Leu", "UUG": "Leu", "CUU": "Leu", "CUC": "Leu", "CUA": "Leu", "CUG": "Leu",
+                "AUU": "Ile", "AUC": "Ile", "AUA": "Ile",
+                "AUG": "Met",
+                "GUU": "Val", "GUC": "Val", "GUA": "Val", "GUG": "Val",
+                "UCU": "Ser", "UCC": "Ser", "UCA": "Ser", "UCG": "Ser", "AGU": "Ser", "AGC": "Ser",
+                "CCU": "Pro", "CCC": "Pro", "CCA": "Pro", "CCG": "Pro",
+                "ACU": "Thr", "ACC": "Thr", "ACA": "Thr", "ACG": "Thr",
+                "GCU": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala",
+                "UAU": "Tyr", "UAC": "Tyr",
+                "UAA": "Stop", "UAG": "Stop", "UGA": "Stop",
+                "CAU": "His", "CAC": "His",
+                "CAA": "Gln", "CAG": "Gln",
+                "AAU": "Asn", "AAC": "Asn",
+                "AAA": "Lys", "AAG": "Lys",
+                "GAU": "Asp", "GAC": "Asp",
+                "GAA": "Glu", "GAG": "Glu",
+                "UGU": "Cys", "UGC": "Cys",
+                "UGG": "Trp",
+                "CGU": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg", "AGA": "Arg", "AGG": "Arg",
+                "GGU": "Gly", "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"
+            };
+
+            for (var i = 0; i < dnaSequence.length; i += 3) {
+                var codon = dnaSequence.slice(i, i + 3);
+                var aminoAcid = codonTable[codon];
+                if (aminoAcid) {
+                    proteinSequence += aminoAcid + " ";
+                } else {
+                    proteinSequence += "? ";
+                }
+            }
+
+            document.getElementById("proteinSequence").textContent = proteinSequence;
+        }
+    </script>
+</body>
+</html>
